@@ -3,10 +3,9 @@ import NavBar from './components/NavBar'
 
 function App() {
   return (
-    <div className="container mt-5">
-        {/* <h1>Hola Mundo Coder desde ReactJS</h1> */}
+    // <div className="container mt-5">
         <NavBar />
-    </div>
+    // </div>
   );
 }
 

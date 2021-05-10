@@ -1,32 +1,20 @@
 import React from 'react'
-
+import { Navbar, Nav } from 'react-bootstrap'
 
 const NavBar = () => {
     return (
-            <nav className="navbar navbar-expand-lg  navbar-dark bg-dark">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Escorpion</a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Productos</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Preguntas Frecuentes</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#" >Contacto</a>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-            </nav>
+            <Navbar bg="dark" variant="dark" expand="lg">
+                <Navbar.Brand href="#home">Escorpion</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#link">Productos</Nav.Link>
+                        <Nav.Link href="#link">Preguntas Frecuentes</Nav.Link>
+                        <Nav.Link href="#link">Contacto</Nav.Link>
+                    </Nav>                
+                </Navbar.Collapse>
+            </Navbar>
     )
 }
 
