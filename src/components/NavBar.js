@@ -1,21 +1,27 @@
-import React from 'react'
-import { Navbar, Nav } from 'react-bootstrap'
+import React from "react";
+import { Navbar, Nav } from "react-bootstrap";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
-    return (
-            <Navbar bg="dark" variant="dark" expand="lg">
-                <Navbar.Brand href="#home">Escorpion</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Productos</Nav.Link>
-                        <Nav.Link href="#link">Preguntas Frecuentes</Nav.Link>
-                        <Nav.Link href="#link">Contacto</Nav.Link>
-                    </Nav>                
-                </Navbar.Collapse>
-            </Navbar>
-    )
-}
+  return (
+    <Navbar bg="light" variant="light" expand="lg">
+      <Navbar.Brand href="#home">
+        <CartWidget imagen="logo" />
+      </Navbar.Brand>
 
-export default NavBar
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#link1">Productos</Nav.Link>
+          <Nav.Link href="#link3">Contacto</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+      <div className="justify-content-end mx-3">
+        <CartWidget imagen="carro" />
+      </div>
+    </Navbar>
+  );
+};
+
+export default NavBar;
