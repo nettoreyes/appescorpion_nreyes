@@ -1,7 +1,6 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import ImagenProducto from "../img/444017.png";
+//import ImagenProducto from "../img/444017.png";
 import Image from "react-bootstrap/Image";
 
 const ItemCount = ({ initial, stock }) => {
@@ -26,12 +25,13 @@ const ItemCount = ({ initial, stock }) => {
 
   return (
     <Card style={{ width: "13rem" }} className="text-center">
-      <Image variant="top" src={ImagenProducto} />
+      {/* <Image variant="top" src={ImagenProducto} /> */}
+      <Image variant="top" src="https://picsum.photos/200/250" />
       <Card.Body>
         <Card.Title>Producto A</Card.Title>
         <Card.Text>Producto tipo etc.</Card.Text>
 
-        <td className="text-center row mt-2 justify-content-center">
+        <div className="text-center row mt-2 justify-content-center">
           <button className="btn btn-primary btn-sm col-sm-3" onClick={() => eventoClick(-1)}>-</button>
           <div className="col-sm-4">{contador}</div>
           <button className="btn btn-primary btn-sm col-sm-3" onClick={() => eventoClick(1)} >+</button>
@@ -41,7 +41,7 @@ const ItemCount = ({ initial, stock }) => {
           : 
           ''
           }
-        </td>
+        </div>
       </Card.Body>
     </Card>
   );
