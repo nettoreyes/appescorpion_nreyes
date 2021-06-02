@@ -10,17 +10,15 @@ const ItemList = ({productos}) => {
         {productos?.map((pro) => (
           <Item
             key={pro.id}
-            id={pro.id}
-            title={pro.title}
-            price={pro.price}
-            pictureUrl={pro.pictureUrl}
-            initial={1}
-            stock={10}
+            item={pro}
+            // id={pro.id}
+            // title={pro.title}
+            // price={pro.price}
+            // pictureUrl={pro.pictureUrl}
+            // initial={1}
+            // stock={10}
           />
-        ))}
-        {/* {productos?.map((pro) => (
-        <p key={pro.id}>{pro.title}</p>
-      ))} */}
+        ))}        
       </div>
     </div>
   );

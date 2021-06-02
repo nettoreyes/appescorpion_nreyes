@@ -6,9 +6,9 @@ import logo from "../img/logo.png";
 
 const NavBar = () => {
   return (
-    <Navbar bg="light" variant="light" expand="lg">
+    <Navbar bg="warning" variant="light" expand="lg">
       <div className="container">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <Image
             src={logo}
             alt="Logo"
@@ -20,9 +20,13 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link1">Productos</Nav.Link>
-            <Nav.Link href="#link3">Contacto</Nav.Link>
+            {/* <Nav.Link href="#home">Home</Nav.Link> */}
+            
+            <Nav.Link href="/category/1">Categoria 1</Nav.Link>
+            <Nav.Link href="/category/2">Categoria 2</Nav.Link>
+            <Nav.Link href="/category/3">Categoria 3</Nav.Link>
+            <Nav.Link href="/category/4">Categoria 4</Nav.Link>
+            
           </Nav>
         </Navbar.Collapse>
         <div className="justify-content-end mx-3">

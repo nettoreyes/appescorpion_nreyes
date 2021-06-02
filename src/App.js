@@ -12,7 +12,8 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/"><ItemListContainer /></Route>
-        <Route exact path="/cart"><ItemDetailContainer /></Route>
+        <Route path="/category/:id"><ItemListContainer /></Route>
+        <Route path="/item/:id"><ItemDetailContainer /></Route>
       </Switch>
       {/* <ItemListContainer /> */}
       {/* <ItemDetailContainer /> */}
