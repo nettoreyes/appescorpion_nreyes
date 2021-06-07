@@ -10,13 +10,7 @@ const ItemList = ({productos}) => {
         {productos?.map((pro) => (
           <Item
             key={pro.id}
-            item={pro}
-            // id={pro.id}
-            // title={pro.title}
-            // price={pro.price}
-            // pictureUrl={pro.pictureUrl}
-            // initial={1}
-            // stock={10}
+            item={pro}           
           />
         ))}        
       </div>

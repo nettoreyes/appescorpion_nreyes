@@ -17,51 +17,58 @@ const ItemListContainer = () => {
         id: 1,
         title: "Producto 1",
         price: 5000,
-        pictureUrl: "imagen1",
+        pictureUrl: "1025",
         idCategoria: "1",
       },
       {
         id: 2,
         title: "Producto 2",
         price: 6500,
-        pictureUrl: "imagen2",
+        pictureUrl: "1026",
         idCategoria: "1",
       },
       {
         id: 3,
         title: "Producto 3",
         price: 8000,
-        pictureUrl: "imagen3",
+        pictureUrl: "1027",
         idCategoria: "2",
       },
       {
         id: 4,
         title: "Producto 4",
         price: 11000,
-        pictureUrl: "imagen4",
+        pictureUrl: "1028",
         idCategoria: "2",
       },
       {
         id: 5,
         title: "Producto 5",
         price: 13000,
-        pictureUrl: "imagen5",
+        pictureUrl: "1029",
         idCategoria: "3",
       },
       {
         id: 6,
         title: "Producto 6",
         price: 18000,
-        pictureUrl: "imagen6",
+        pictureUrl: "1031",
         idCategoria: "3"
       },
       {
         id: 7,
         title: "Producto 7",
         price: 17000,
-        pictureUrl: "imagen7",
+        pictureUrl: "1032",
         idCategoria: "4",
       },
+      {
+        id: 8,
+        title: "Producto 8",
+        price: 16000,
+        pictureUrl: "1033",
+        idCategoria: "2",
+      }
     ];
 
     const listaFiltrada = (id === undefined ? _listaProductos : _listaProductos.filter(item=>item.idCategoria === id));

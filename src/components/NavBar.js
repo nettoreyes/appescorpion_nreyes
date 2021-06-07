@@ -3,6 +3,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import CartWidget from "./CartWidget";
 import Image from "react-bootstrap/Image";
 import logo from "../img/logo.png";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -21,11 +22,16 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             {/* <Nav.Link href="#home">Home</Nav.Link> */}
-            
-            <Nav.Link href="/category/1">Categoria 1</Nav.Link>
+
+            <NavLink to="/category/1" className="nav-link">Categoria 1</NavLink>
+            <NavLink to="/category/2" className="nav-link">Categoria 2</NavLink>
+            <NavLink to="/category/3" className="nav-link">Categoria 3</NavLink>
+            <NavLink to="/category/4" className="nav-link">Categoria 4</NavLink>
+
+            {/* <Nav.Link href="/category/1">Categoria 1</Nav.Link>
             <Nav.Link href="/category/2">Categoria 2</Nav.Link>
             <Nav.Link href="/category/3">Categoria 3</Nav.Link>
-            <Nav.Link href="/category/4">Categoria 4</Nav.Link>
+            <Nav.Link href="/category/4">Categoria 4</Nav.Link> */}
             
           </Nav>
         </Navbar.Collapse>
