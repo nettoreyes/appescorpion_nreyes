@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 const ItemListContainer = () => {
   const [productos, setProductos] = useState(null);
   const [nombreCategoria, setNombreCategoria] = useState("Todas los Categorias");
+  const [cargando, setCargando] = useState(true);
 
   const { id } = useParams();
 
@@ -85,13 +86,26 @@ const ItemListContainer = () => {
     promise.then((value) => {
       // console.log(value.map((x) => x.title));
       setProductos(value);
+      setCargando(false);
     });
   }, [id]);
 
   return (
     <div className="container mt-4">
-      <h1>{nombreCategoria}</h1>
-      <ItemList productos={productos} />
+
+      { 
+      cargando === false ? 
+      <>
+        <h1>{nombreCategoria}</h1>
+        <ItemList productos={productos} />
+      </>
+      :
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>        
+      </div>
+      }
     </div>
   );
 };

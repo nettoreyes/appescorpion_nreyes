@@ -1,16 +1,30 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import Image from "react-bootstrap/Image";
 import ItemCount from "./ItemCount";
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
 
 const ItemDetail = (props) => {
   const [terminarCompraVisible, setTerminarCompraVisible] = useState(false)
   const [cantidad, setCantidad] = useState(0)
+  const { listaCarro, setListaCarro } = useContext(CartContext);
 
   const TerminaCompra = (visible, cant) => {
     setTerminarCompraVisible(visible)
     setCantidad(Number(cant))    
   }
+
+  const AgregarCarro = () => {
+    const producto = {
+        idDetalle: listaCarro.length + 1,
+        idProducto: props.item.id ,
+        title: props.item.title,
+        price: props.item.price,
+        pictureUrl: props.item.pictureUrl,
+        cantidad: cantidad
+      };
+      setListaCarro([...listaCarro, producto]);      
+  };
 
   return (
     <div className="container my-5 py-4">
@@ -25,8 +39,9 @@ const ItemDetail = (props) => {
 
             { cantidad > 0 ? <p className="lead fw-bold">Cantidad Seleccionada: {cantidad}</p> : <ItemCount initial={1} stock={3} terminarCompra={TerminaCompra} /> }
              
-            { terminarCompraVisible ?  <Link to={`/cart/`} className="btn btn-dark btn-sm">Terminar Compra</Link>  : '' }
+            { terminarCompraVisible ?  <button className="btn btn-dark btn-sm" onClick={() => AgregarCarro()}>Terminar Compra</button>  : '' }
             
+            {/* <Link to={`/cart/`} className="btn btn-dark btn-sm">Terminar Compra</Link>  */}
         </div>
         
       </div>     
