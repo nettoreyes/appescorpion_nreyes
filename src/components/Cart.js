@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import {Link} from 'react-router-dom';
+import Image from "react-bootstrap/Image";
 import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
@@ -17,10 +18,11 @@ const Cart = () => {
       <div className="container mt-5">
         <h1>Lista de compra</h1>
 
-        <table className="table table-dark table-striped">
-          <thead>
+        <table className="table table-striped table-hover align-middle">
+          <thead className="table-dark">
             <tr>
               <th scope="col">#</th>
+              <th scope="col"></th>
               <th scope="col">Detalle</th>
               <th scope="col" className="text-end">
                 Precio
@@ -39,6 +41,7 @@ const Cart = () => {
               listaCarro.map((item) => (
                 <tr key={item.idDetalle}>
                   <th scope="row">{(linea += 1)} </th>
+                  <td><Image variant="top" src={`https://picsum.photos/id/${item.pictureUrl}/100`} /></td>
                   <td>{item.title}</td>
                   <td className="text-end">{item.price}</td>
                   <td className="text-end">{item.cantidad}</td>
@@ -52,10 +55,11 @@ const Cart = () => {
             <tr>
               <th scope="col"></th>
               <th scope="col"></th>
+              <th scope="col"></th>
               <th scope="col" className="text-end"></th>
               <th scope="col" className="text-end">Total</th>
               <th scope="col" className="text-end">${totalFinal}</th>
-              <th></th>
+              <th className="text-center"><button className="btn btn-danger btn-sm px-2" onClick={() => EliminaItem(0)} ><i class="bi bi-trash"></i> Vaciar Carro</button></th>
             </tr>
           </tfoot>
         </table>

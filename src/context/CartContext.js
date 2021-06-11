@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import Swal from 'sweetalert2'
 
 export const CartContext = createContext();
 
@@ -35,10 +36,54 @@ const CartProvider = (props) => {
   };
 
   const EliminaItem = (idProducto) => {
-      //console.log(idProducto)
-    const listaFiltrada = listaCarro.filter(x=>x.idProducto !== idProducto);
-    setListaCarro(listaFiltrada);
-    setCantidadProductos(listaFiltrada.length);
+    Swal.fire({
+      title: idProducto === 0 ? 'Vaciar Carro' : 'Eliminar',
+      text: idProducto === 0 ? "Esta seguro de vaciar el carro" : "Esta seguro de eliminar el producto?",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        if(idProducto > 0){
+          const listaFiltrada = listaCarro.filter(x=>x.idProducto !== idProducto);
+          setListaCarro(listaFiltrada);
+
+          let cantidadTotal = 0;
+          for(const item of listaFiltrada){    
+              cantidadTotal += item.cantidad; 
+          }
+          setCantidadProductos(cantidadTotal);
+          
+        }
+        else{
+          setListaCarro([]);
+          setCantidadProductos(0);
+        }
+
+          Swal.fire(
+              idProducto === 0 ? 'Sin Productos' : 'Eliminado!',
+              idProducto === 0 ? 'Carro Vacio' : 'Producto Eliminado',
+              'success'
+          );          
+      }
+    });   
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   };
 
   return (
