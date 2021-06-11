@@ -1,30 +1,36 @@
 import React, {useState, useContext} from "react";
 import Image from "react-bootstrap/Image";
 import ItemCount from "./ItemCount";
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 
 const ItemDetail = (props) => {
   const [terminarCompraVisible, setTerminarCompraVisible] = useState(false)
-  const [cantidad, setCantidad] = useState(0)
-  const { listaCarro, setListaCarro } = useContext(CartContext);
+  const [productoAgregado, setProductoAgregado] = useState(false)
+  // const [cantidad, setCantidad] = useState(0)
+  const { listaCarro, AgregarCarro } = useContext(CartContext);
+
 
   const TerminaCompra = (visible, cant) => {
     setTerminarCompraVisible(visible)
-    setCantidad(Number(cant))    
+    // setCantidad(Number(cant))    
+
+    const producto = {
+      idDetalle: listaCarro.length + 1,
+      idProducto: props.item.id ,
+      title: props.item.title,
+      price: props.item.price,
+      pictureUrl: props.item.pictureUrl,
+      cantidad: Number(cant)
+    };
+
+    const existe = AgregarCarro(producto);
+
+    setProductoAgregado(existe)
+
   }
 
-  const AgregarCarro = () => {
-    const producto = {
-        idDetalle: listaCarro.length + 1,
-        idProducto: props.item.id ,
-        title: props.item.title,
-        price: props.item.price,
-        pictureUrl: props.item.pictureUrl,
-        cantidad: cantidad
-      };
-      setListaCarro([...listaCarro, producto]);      
-  };
+ 
 
   return (
     <div className="container my-5 py-4">
@@ -37,13 +43,16 @@ const ItemDetail = (props) => {
             <h3 className="">${props.item.price}</h3>
             <p className="lead">{props.item.descripcion}</p>
 
-            { cantidad > 0 ? <p className="lead fw-bold">Cantidad Seleccionada: {cantidad}</p> : <ItemCount initial={1} stock={3} terminarCompra={TerminaCompra} /> }
-             
-            { terminarCompraVisible ?  <button className="btn btn-dark btn-sm" onClick={() => AgregarCarro()}>Terminar Compra</button>  : '' }
+            {/* { cantidad > 0 ? <p className="lead fw-bold">Cantidad Seleccionada: {cantidad}</p> : <ItemCount initial={1} stock={3} terminarCompra={TerminaCompra} /> } */}
+             <ItemCount initial={1} stock={3} terminarCompra={TerminaCompra} />
+            { terminarCompraVisible ?  <Link to={`/cart/`} className="btn btn-dark btn-sm">Terminar Compra</Link>  : '' }
+
+            { productoAgregado ? <div className="alert alert-danger text-center mt-3" role="alert">Producto ya Agregado Anteriormente </div> : '' }
             
+            {/* <button className="btn btn-dark btn-sm" onClick={() => AgregarCarro()}>Terminar Compra</button> */}
+
             {/* <Link to={`/cart/`} className="btn btn-dark btn-sm">Terminar Compra</Link>  */}
         </div>
-        
       </div>     
     </div>
   );
