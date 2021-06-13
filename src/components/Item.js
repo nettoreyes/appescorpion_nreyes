@@ -8,7 +8,8 @@ const Item = (props) => {
   return (
     <div className="col my-2">
       <Card style={{ width: "15rem" }} className=" text-center ">       
-        <Image variant="top" src={`https://picsum.photos/id/${props.item.pictureUrl}/200/250`} />
+        {/* <Image variant="top" src={`https://picsum.photos/id/${props.item.pictureUrl}/200/250`} /> */}
+        <Image variant="top" src={`${props.item.image}/200/250`} />
         
         <Card.Body>
           <Card.Title>{props.item.title}</Card.Title>

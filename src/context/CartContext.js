@@ -7,8 +7,7 @@ const CartProvider = (props) => {
   const [listaCarro, setListaCarro] = useState([]);
   const [cantidadProductos, setCantidadProductos] = useState(0);
 
-  const AgregarCarro = (item) => {
-    
+  const agregarCarro = (item) => {  
     //para el calculo de cantidad de productos
     let cantidadTotal = item.cantidad;//inicio con la cantidad que trae el producto
     for(const item of listaCarro){    
@@ -35,7 +34,10 @@ const CartProvider = (props) => {
 
   };
 
-  const EliminaItem = (idProducto) => {
+  const eliminaItem = (idProducto) => {
+
+    //console.log(typeof(idProducto))
+
     Swal.fire({
       title: idProducto === 0 ? 'Vaciar Carro' : 'Eliminar',
       text: idProducto === 0 ? "Esta seguro de vaciar el carro" : "Esta seguro de eliminar el producto?",
@@ -47,7 +49,11 @@ const CartProvider = (props) => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        if(idProducto > 0){
+        if(idProducto === "0"){
+          setListaCarro([]);
+          setCantidadProductos(0);
+        }
+        else{
           const listaFiltrada = listaCarro.filter(x=>x.idProducto !== idProducto);
           setListaCarro(listaFiltrada);
 
@@ -56,11 +62,6 @@ const CartProvider = (props) => {
               cantidadTotal += item.cantidad; 
           }
           setCantidadProductos(cantidadTotal);
-          
-        }
-        else{
-          setListaCarro([]);
-          setCantidadProductos(0);
         }
 
           Swal.fire(
@@ -87,7 +88,7 @@ const CartProvider = (props) => {
   };
 
   return (
-    <CartContext.Provider value={{ listaCarro, setListaCarro, AgregarCarro, EliminaItem, cantidadProductos }}>
+    <CartContext.Provider value={{ listaCarro, setListaCarro, agregarCarro, eliminaItem, cantidadProductos }}>
       {props.children}
     </CartContext.Provider>
   );
