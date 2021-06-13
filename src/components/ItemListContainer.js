@@ -49,7 +49,7 @@ const ItemListContainer = () => {
 
     
     setNombreCategoria(
-      id === undefined ? "Todas los Categorias" : `Categoria ${id}`
+      id === undefined ? "Todas las Categorias " : `Categoria ${id}`
     );
 
     // const _listaProductos = [
