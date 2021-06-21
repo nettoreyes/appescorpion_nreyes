@@ -30,9 +30,9 @@ const Cart = () => {
                 <div className="w-100 d-none d-md-block"></div>
                 <div className="col-3 text-start"> $ { item.price.toLocaleString('de-DE') } c/u</div>
                 <div className="col-6 text-center">
-                  <button className="btn btn-success btn-sm" onClick={() => eliminaItem(item.idProducto)}> - </button>
+                  <button className="btn btn-success btn-sm" disabled onClick={() => eliminaItem(item.idProducto)}> - </button>
                   <span className="mx-md-2"> {item.cantidad} </span>
-                  <button className="btn btn-success btn-sm" onClick={() => eliminaItem(item.idProducto)}> + </button>
+                  <button className="btn btn-success btn-sm" disabled onClick={() => eliminaItem(item.idProducto)}> + </button>
                 </div>
                 <div className="col-3 text-end fw-bold"> ${item.totalLinea.toLocaleString('de-DE')} </div>
 
@@ -52,7 +52,7 @@ const Cart = () => {
               <h3>Total : ${ totalFinal.toLocaleString('de-DE') }</h3>
             </div>
             <div className="col-12 col-md-2 mt-1 text-center">
-              <Link to={`/`} className="btn btn-success btn-sm">Terminar Compra</Link>
+              <Link to={`/buyer`} className="btn btn-success btn-sm">Terminar Compra</Link>
             </div>
           </div>
         </div>

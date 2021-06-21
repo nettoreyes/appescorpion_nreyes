@@ -87,8 +87,13 @@ const CartProvider = (props) => {
     
   };
 
+  const terminarCompra = () => {
+    setListaCarro([]);
+    setCantidadProductos(0);
+  }
+
   return (
-    <CartContext.Provider value={{ listaCarro, setListaCarro, agregarCarro, eliminaItem, cantidadProductos }}>
+    <CartContext.Provider value={{ listaCarro, setListaCarro, agregarCarro, eliminaItem, cantidadProductos, terminarCompra }}>
       {props.children}
     </CartContext.Provider>
   );

@@ -41,7 +41,7 @@ const NavBar = () => {
           </Nav>
         </Navbar.Collapse>
         {cantidadProductos > 0 ? (
-          <div className="justify-content-end mx-3">
+          <div className="mx-3 ">
             <CartWidget imagen="carro" />
           </div>
         ) : (
