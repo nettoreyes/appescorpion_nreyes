@@ -22,6 +22,10 @@ const Buyer = (props) => {
         {label: "Email", name:"email", type:"email"}
     ];
 
+
+    
+
+
     const guardaCompra = () => {
        
         setError(null);
@@ -81,12 +85,8 @@ const Buyer = (props) => {
     }
 
     const onChange = (evt) => {
-        // console.log(evt.target.name);
         setCamposFormulario({...camposFormulario, [evt.target.name] : evt.target.value});        
     }
-
-    // console.log(camposFormulario);
-
     return (
         <div className="container mt-3 p-2">
             <h3 className="my-3">Datos de contacto</h3>
@@ -99,16 +99,12 @@ const Buyer = (props) => {
                         </div>     
                     ))
                 }
-
                 {
                     error ? <span className="text-danger fw-bold my-4">{ error }</span> : ''
                 }
-
-
                 <div className="mb-3">
                     <button className="btn btn-success btn-sm" onClick={guardaCompra}> Confirmar compra </button>
-                </div>  
-           
+                </div>             
         </div>
     )
 }

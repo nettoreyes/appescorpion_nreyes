@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-// import Card from "react-bootstrap/Card";
-//import ImagenProducto from "../img/444017.png";
-// import Image from "react-bootstrap/Image";
 
 const ItemCount = ({ initial, stock, terminarCompra }) => {
   const [contador, setContador] = useState(initial);

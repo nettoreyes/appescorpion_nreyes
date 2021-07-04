@@ -36,8 +36,6 @@ const CartProvider = (props) => {
 
   const eliminaItem = (idProducto) => {
 
-    //console.log(typeof(idProducto))
-
     Swal.fire({
       title: idProducto === 0 ? 'Vaciar Carro' : 'Eliminar',
       text: idProducto === 0 ? "Esta seguro de vaciar el carro" : "Esta seguro de eliminar el producto?",
@@ -70,21 +68,7 @@ const CartProvider = (props) => {
               'success'
           );          
       }
-    });   
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+    });       
   };
 
   const terminarCompra = () => {

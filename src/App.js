@@ -20,9 +20,7 @@ function App() {
           <Route path="/item/:id"><ItemDetailContainer /></Route>
           <Route path="/cart"><Cart /></Route>
           <Route path="/buyer"><Buyer /></Route>
-        </Switch>
-        {/* <ItemListContainer /> */}
-        {/* <ItemDetailContainer /> */}
+        </Switch>        
         <PiePagina />
       </BrowserRouter>
     </CartProvider>    

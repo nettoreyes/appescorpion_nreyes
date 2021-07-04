@@ -29,10 +29,8 @@ const Cart = () => {
                 <div className="col-12 text-start fw-bold">{item.title}</div>                
                 <div className="w-100 d-none d-md-block"></div>
                 <div className="col-3 text-start"> $ { item.price.toLocaleString('de-DE') } c/u</div>
-                <div className="col-6 text-center">
-                  <button className="btn btn-success btn-sm" disabled onClick={() => eliminaItem(item.idProducto)}> - </button>
+                <div className="col-6 text-center">                  
                   <span className="mx-md-2"> {item.cantidad} </span>
-                  <button className="btn btn-success btn-sm" disabled onClick={() => eliminaItem(item.idProducto)}> + </button>
                 </div>
                 <div className="col-3 text-end fw-bold"> ${item.totalLinea.toLocaleString('de-DE')} </div>
 
