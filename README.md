@@ -10,6 +10,7 @@ Proyecto desarrollado en RectJS , bootstrap y Firebase para almacenar productos 
 -filtro por categorias
 -seleccion de productos 
 -agregar al carro
+-registro de usuario y venta final
 
 ## Available Scripts
 
